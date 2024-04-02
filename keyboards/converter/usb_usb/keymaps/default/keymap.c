@@ -19,6 +19,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 enum custom_keycodes {
     QMKBEST = SAFE_RANGE,
+    QUOTES,
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
@@ -33,7 +34,21 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         break;
     }
     return true;
-};
+
+//bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+//    switch (keycode) {
+//    case QUOTES:
+//        if (record->event.pressed) {
+//            // when keycode QMKBEST is pressed
+//            SEND_STRING(SS_LCTL("W"));
+//        } else {
+//            // when keycode QMKBEST is released
+//        }
+//        break;
+//    }
+//    return true;
+//
+//};
 
 
 
@@ -75,3 +90,5 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, _______, _______, _______, _______,          _______,          _______, _______, _______, _______, _______, _______, _______,  _______, _______, _______,    _______,          _______, _______,    _______, _______
     ),
 };
+
+
