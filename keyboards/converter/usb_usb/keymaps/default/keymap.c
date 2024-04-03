@@ -169,7 +169,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             // one point gap
             SEND_STRING(SS_DOWN(X_LCTL));
             SEND_STRING(SS_DOWN(X_LALT));
-            SEND_STRING("N0");
+            SEND_STRING("0");
             SEND_STRING(SS_UP(X_LCTL));
             SEND_STRING(SS_UP(X_LALT));
         } else {
@@ -182,7 +182,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             // 3 point gap
             SEND_STRING(SS_DOWN(X_LCTL));
             SEND_STRING(SS_DOWN(X_LALT));
-            SEND_STRING("P1");
+            SEND_STRING("1");
             SEND_STRING(SS_UP(X_LCTL));
             SEND_STRING(SS_UP(X_LALT));
         } else {
@@ -195,7 +195,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             // 6 point gap
             SEND_STRING(SS_DOWN(X_LCTL));
             SEND_STRING(SS_DOWN(X_LALT));
-            SEND_STRING("P2");
+            SEND_STRING("2");
             SEND_STRING(SS_UP(X_LCTL));
             SEND_STRING(SS_UP(X_LALT));
         } else {
@@ -208,7 +208,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             // 8 point gap
             SEND_STRING(SS_DOWN(X_LCTL));
             SEND_STRING(SS_DOWN(X_LALT));
-            SEND_STRING("P3");
+            SEND_STRING("3");
             SEND_STRING(SS_UP(X_LCTL));
             SEND_STRING(SS_UP(X_LALT));
         } else {
@@ -221,7 +221,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             // 12 point gap
             SEND_STRING(SS_DOWN(X_LCTL));
             SEND_STRING(SS_DOWN(X_LALT));
-            SEND_STRING("P4");
+            SEND_STRING("4");
             SEND_STRING(SS_UP(X_LCTL));
             SEND_STRING(SS_UP(X_LALT));
         } else {
@@ -234,7 +234,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             // 18 point gap
             SEND_STRING(SS_DOWN(X_LCTL));
             SEND_STRING(SS_DOWN(X_LALT));
-            SEND_STRING("P5");
+            SEND_STRING("5");
             SEND_STRING(SS_UP(X_LCTL));
             SEND_STRING(SS_UP(X_LALT));
         } else {
@@ -247,7 +247,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             // 24 point gap
             SEND_STRING(SS_DOWN(X_LCTL));
             SEND_STRING(SS_DOWN(X_LALT));
-            SEND_STRING("P6");
+            SEND_STRING("6");
             SEND_STRING(SS_UP(X_LCTL));
             SEND_STRING(SS_UP(X_LALT));
         } else {
