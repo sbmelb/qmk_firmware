@@ -48,7 +48,8 @@ enum custom_keycodes {
     FRTNPT_HDG,
     SIXTNPT_HDG,
     EGTNPT_HDG,
-    TWTWPT_HDG
+    TWTWPT_HDG,
+    PNCPLE
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
@@ -341,10 +342,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         }
         break;
 
-        case TWLVPT_HDG
+        case TWLVPT_HDG:
         if (record->event.pressed) {
             // 12 point heading
-            SEND_STRING(SS_LALT(SS_TAP(X_F18)));
+            SEND_STRING(SS_LCTL(SS_LSFT("t")));
         } else {
             // when keycode QMKBEST is released
         }
@@ -353,7 +354,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         case FRTNPT_HDG:
         if (record->event.pressed) {
             // 14 point heading
-            SEND_STRING(SS_LALT(SS_TAP(X_F18)));
+            SEND_STRING(SS_LCTL(SS_LSFT("o")));
         } else {
             // when keycode QMKBEST is released
         }
@@ -362,7 +363,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         case SIXTNPT_HDG:
         if (record->event.pressed) {
             // 16 point heading
-            SEND_STRING(SS_LALT(SS_TAP(X_F18)));
+            SEND_STRING(SS_LCTL(SS_LSFT("p")));
         } else {
             // when keycode QMKBEST is released
         }
@@ -371,7 +372,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         case EGTNPT_HDG:
         if (record->event.pressed) {
             // 18 point heading
-            SEND_STRING(SS_LALT(SS_TAP(X_F18)));
+            SEND_STRING(SS_LCTL(SS_LSFT("y")));
         } else {
             // when keycode QMKBEST is released
         }
@@ -380,13 +381,20 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         case TWTWPT_HDG:
         if (record->event.pressed) {
             // 22 point heading
-            SEND_STRING(SS_LALT(SS_TAP(X_F18)));
+            SEND_STRING(SS_LCTL(SS_LALT("j")));
         } else {
             // when keycode QMKBEST is released
         }
         break;
 
-
+        case PNCPLE:
+        if (record->event.pressed) {
+            // * Principle (case summary)
+            SEND_STRING(SS_LALT("p"));
+        } else {
+            // when keycode QMKBEST is released
+        }
+        break;
 
 
 
@@ -419,12 +427,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      */
     [0] = LAYOUT_all(
                          KC_F13,   KC_F14,   KC_F15,   KC_F16,   KC_F17,   KC_F18,     KC_F19,    KC_F20,     KC_F21,    KC_F22,    KC_F23,    KC_F24,
-    KC_ESC,              KC_F1,    KC_F2,    KC_F3,    KC_F4,    KC_F5,    KC_F6,      KC_F7,     KC_F8,      KC_F9,     KC_F10,    KC_F11,    KC_F12,                     QK_RBT,    KC_SCRL,   QK_BOOT,         KC_VOLD,    KC_VOLU,   KC_MUTE,      KC_PWR,     KC_HELP,
-    KC_GRV,    KC_1,     KC_2,     KC_3,     KC_4,     KC_5,     ONE_PT,   THRE_PT,    SIX_PT,    EGHT_PT,    TWLV_PT,   EGTN_PT,   TWFR_PT,   KC_INT3,   KC_BSPC,         KC_INS,    KC_HOME,   KC_PGUP,         TWTWPT_HDG,     KC_PSLS,   KC_PAST,      KC_PMNS,    KC_STOP, KC_AGIN,
-    QUOTES,    CAPS,     KC_W,     KC_E,     UND,      KC_T,     KC_Y,     DASH_LIST,  DOT_LIST,  KC_O,       KC_P,      RD_BKT,    SQ_BKT,               KC_BSLS,         KC_DEL,    KC_END,    KC_PGDN,         EGTNPT_HDG,      KC_P8,     KC_P9,        KC_PPLS,    KC_MENU, KC_UNDO,
+    KC_ESC,              KC_F1,    KC_F2,    KC_F3,    KC_F4,    KC_F5,    KC_F6,      KC_F7,     KC_F8,      KC_F9,     KC_F10,    KC_F11,    KC_F12,                     QK_RBT,    KC_SCRL,   QK_BOOT,         KC_VOLD,     KC_VOLU,   KC_MUTE,      KC_PWR,     KC_HELP,
+    KC_GRV,    PNCPLE,   KC_2,     KC_3,     KC_4,     KC_5,     ONE_PT,   THRE_PT,    SIX_PT,    EGHT_PT,    TWLV_PT,   EGTN_PT,   TWFR_PT,   KC_INT3,   KC_BSPC,         KC_INS,    KC_HOME,   KC_PGUP,         TWTWPT_HDG,  KC_PSLS,   KC_PAST,      KC_PMNS,    KC_STOP, KC_AGIN,
+    QUOTES,    CAPS,     KC_W,     KC_E,     UND,      KC_T,     KC_Y,     DASH_LIST,  DOT_LIST,  KC_O,       KC_P,      RD_BKT,    SQ_BKT,               KC_BSLS,         KC_DEL,    KC_END,    KC_PGDN,         EGTNPT_HDG,  KC_P8,     KC_P9,        KC_PPLS,    KC_MENU, KC_UNDO,
     KC_CAPS,   CLEAR,    BOLD,     ITALIC,   HLGHT,    KC_G,     KC_H,     KC_J,       KC_K,      KC_L,       KC_SCLN,   KC_QUOT,              KC_NUHS,   KC_ENT,                                                 SIXTNPT_HDG, KC_P5,     KC_P6,        KC_PCMM,    KC_SLCT, KC_COPY,
-    KC_LSFT,   KC_NUBS,  COPY,     SF_PST,   PASTE,    KC_V,     KC_B,     KC_N,       KC_M,      L_INDENT,   R_INDENT,  KC_SLSH,              KC_INT1,   KC_RSFT,                    KC_UP,                      FRTNPT_HDG, KC_P2,     KC_P3,        KC_PEQL,    KC_EXEC, KC_PSTE,
-    KC_LCTL,   UNDO,     REDO,     KC_INT5,  KC_LNG2,            KC_SPC,               KC_NO,     KC_NO,      KC_INT2,   KC_NO,     KC_NO,     KC_NO,     KC_NO,           KC_LEFT,   KC_DOWN,   KC_RGHT,         TWLVPT_HDG,             KC_PDOT,        KC_PENT,    KC_FIND, KC_CUT
+    KC_LSFT,   KC_NUBS,  COPY,     SF_PST,   PASTE,    KC_V,     KC_B,     KC_N,       KC_M,      L_INDENT,   R_INDENT,  KC_SLSH,              KC_INT1,   KC_RSFT,                    KC_UP,                      FRTNPT_HDG,  KC_P2,     KC_P3,        KC_PEQL,    KC_EXEC, KC_PSTE,
+    KC_LCTL,   UNDO,     REDO,     KC_INT5,  KC_LNG2,            KC_SPC,               KC_NO,     KC_NO,      KC_INT2,   KC_NO,     KC_NO,     KC_NO,     KC_NO,           KC_LEFT,   KC_DOWN,   KC_RGHT,         TWLVPT_HDG,             KC_PDOT,      KC_PENT,    KC_FIND, KC_CUT
     ),
     [1] = LAYOUT_all(
                       _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
